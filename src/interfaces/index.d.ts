@@ -14,7 +14,18 @@ export interface IProduct {
 export interface ICategory {
     id: number,
     title: string,
-    parent_id: ICategory
+    parent_id?: ICategory
+}
+
+export interface IHotDeal {
+    id: number,
+    created_at: string,
+    start_date: string,
+    end_date: string,
+    title: string,
+    description: string,
+    category_id: ICategory,
+    discount_percent: number,
 }
 
 export interface IFabricator {

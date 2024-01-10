@@ -31,14 +31,17 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
  * Theming
  */
 import { ThemedLayoutV2, RefineThemes } from "@refinedev/mui";
-import {ThemeProvider} from "@mui/material/styles";
+import { FireOutlined, ContainerOutlined, TagsOutlined } from '@ant-design/icons';
+import { ThemeProvider } from "@mui/material/styles";
 import "@refinedev/antd/dist/reset.css";
 
 /**
  * Pages
  */
 import { ProductCreate, ProductEdit, ProductList, ProductShow } from "./pages/product";
-import {CategoryCreate, CategoryEdit, CategoryList, CategoryShow} from "./pages/category";
+import { CategoryCreate, CategoryEdit, CategoryList, CategoryShow } from "./pages/category";
+import { HotDealCreate, HotDealEdit, HotDealList, HotDealShow } from "./pages/hot_deal";
+import {Index} from "./pages";
 
 const App: React.FC = () => {
     return (
@@ -58,6 +61,8 @@ const App: React.FC = () => {
                             show: "/product/show/:id",
                             meta: {
                                 canDelete: true,
+                                icon: <ContainerOutlined />,
+                                label: "Продукты"
                             },
                         },
                         {
@@ -68,6 +73,20 @@ const App: React.FC = () => {
                             show: "/category/show/:id",
                             meta: {
                                 canDelete: true,
+                                icon: <TagsOutlined />,
+                                label: "Категории"
+                            },
+                        },
+                        {
+                            name: "hot_deal",
+                            list: "/hot_deal",
+                            create: "/hot_deal/create",
+                            edit: "/hot_deal/edit/:id",
+                            show: "/hot_deal/show/:id",
+                            meta: {
+                                canDelete: true,
+                                icon: <FireOutlined />,
+                                label: "Скидки"
                             },
                         },
                     ]}
@@ -99,7 +118,7 @@ const App: React.FC = () => {
                             <Route
                                 index
                                 element={
-                                    <NavigateToResource resource="posts" />
+                                    <Index/>
                                 }
                             />
 
@@ -114,6 +133,12 @@ const App: React.FC = () => {
                                 <Route path="create" element={<CategoryCreate />} />
                                 <Route path="edit/:id" element={<CategoryEdit />} />
                                 <Route path="show/:id" element={<CategoryShow />} />
+                            </Route>
+                            <Route path="/hot_deal">
+                                <Route index element={<HotDealList />} />
+                                <Route path="create" element={<HotDealCreate />} />
+                                <Route path="edit/:id" element={<HotDealEdit />} />
+                                <Route path="show/:id" element={<HotDealShow />} />
                             </Route>
                         </Route>
 
