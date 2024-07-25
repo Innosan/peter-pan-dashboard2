@@ -10,8 +10,11 @@ import {
 import { Table, Space, Select } from "antd";
 
 import { IProduct, ICategory, IFabricator } from "interfaces";
+import {useLink} from "@refinedev/core";
 
 export const ProductList: React.FC = () => {
+    const Link = useLink();
+
     const { tableProps, sorter } = useTable<IProduct>({
         sorters: {
             initial: [
@@ -55,6 +58,15 @@ export const ProductList: React.FC = () => {
                 <Table.Column key="quantity" dataIndex="quantity" title="Quantity" sorter />
                 <Table.Column
                     key="fabricator_id"
+                    render={((value, record, index) => {
+                        return (
+                            <Link to={"/fabricator/show/" + record.fabricator_id.id}>
+                                {
+                                value
+                                }
+                            </Link>
+                        )
+                    })}
                     dataIndex={["fabricator_id", "title"]}
                     title="Fabricator"
                     defaultSortOrder={getDefaultSortOrder("fabricator_id.title", sorter)}

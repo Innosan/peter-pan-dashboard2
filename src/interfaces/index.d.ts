@@ -32,3 +32,32 @@ export interface IFabricator {
     id: number,
     title: string
 }
+
+export interface IStatus {
+    id: number,
+    title: string,
+    icon: string,
+    description: string
+}
+
+export interface IOrder {
+    id: number,
+    order_date: string,
+    total: number,
+    delivery_address: string,
+    user_id: IUser,
+    status_id: IStatus
+}
+
+export interface IOrderItem {
+    id: number,
+    order_id: IOrder,
+    product_id: IProduct,
+    quantity: number,
+}
+
+export interface IUser {
+    id: number,
+    first_name: string,
+    last_name: string
+}

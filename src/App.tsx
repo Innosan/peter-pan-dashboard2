@@ -31,7 +31,7 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
  * Theming
  */
 import { ThemedLayoutV2, RefineThemes } from "@refinedev/mui";
-import { FireOutlined, ContainerOutlined, TagsOutlined } from '@ant-design/icons';
+import {FireOutlined, ContainerOutlined, TagsOutlined, ShoppingCartOutlined, BankOutlined} from '@ant-design/icons';
 import { ThemeProvider } from "@mui/material/styles";
 import "@refinedev/antd/dist/reset.css";
 
@@ -42,6 +42,8 @@ import { ProductCreate, ProductEdit, ProductList, ProductShow } from "./pages/pr
 import { CategoryCreate, CategoryEdit, CategoryList, CategoryShow } from "./pages/category";
 import { HotDealCreate, HotDealEdit, HotDealList, HotDealShow } from "./pages/hot_deal";
 import {Index} from "./pages";
+import {OrderEdit, OrderList, OrderShow} from "./pages/order";
+import {FabricatorCreate, FabricatorEdit, FabricatorList, FabricatorShow} from "./pages/fabricator";
 
 const App: React.FC = () => {
     return (
@@ -66,6 +68,17 @@ const App: React.FC = () => {
                             },
                         },
                         {
+                            name: "order",
+                            list: "/order",
+                            show: "/order/show/:id",
+                            edit: "/order/edit/:id",
+                            meta: {
+                                canDelete: true,
+                                icon: <ShoppingCartOutlined />,
+                                label: "Заказы"
+                            },
+                        },
+                        {
                             name: "category",
                             list: "/category",
                             create: "/category/create",
@@ -75,6 +88,18 @@ const App: React.FC = () => {
                                 canDelete: true,
                                 icon: <TagsOutlined />,
                                 label: "Категории"
+                            },
+                        },
+                        {
+                            name: "fabricator",
+                            list: "/fabricator",
+                            create: "/fabricator/create",
+                            edit: "/fabricator/edit/:id",
+                            show: "/fabricator/show/:id",
+                            meta: {
+                                canDelete: true,
+                                icon: <BankOutlined />,
+                                label: "Производители"
                             },
                         },
                         {
@@ -128,11 +153,22 @@ const App: React.FC = () => {
                                 <Route path="edit/:id" element={<ProductEdit />} />
                                 <Route path="show/:id" element={<ProductShow />} />
                             </Route>
+                            <Route path="/order">
+                                <Route index element={<OrderList />} />
+                                <Route path="show/:id" element={<OrderShow />} />
+                                <Route path="edit/:id" element={<OrderEdit />} />
+                            </Route>
                             <Route path="/category">
                                 <Route index element={<CategoryList />} />
                                 <Route path="create" element={<CategoryCreate />} />
                                 <Route path="edit/:id" element={<CategoryEdit />} />
                                 <Route path="show/:id" element={<CategoryShow />} />
+                            </Route>
+                            <Route path="/fabricator">
+                                <Route index element={<FabricatorList />} />
+                                <Route path="create" element={<FabricatorCreate />} />
+                                <Route path="edit/:id" element={<FabricatorEdit />} />
+                                <Route path="show/:id" element={<FabricatorShow />} />
                             </Route>
                             <Route path="/hot_deal">
                                 <Route index element={<HotDealList />} />
