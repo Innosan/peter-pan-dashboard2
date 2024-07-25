@@ -1,7 +1,7 @@
 import { Create, useForm, useSelect } from "@refinedev/antd";
 import { Form, Input, Select } from "antd";
 
-import { IProduct, ICategory } from "interfaces";
+import { IProduct, ICategory } from "../../interfaces";
 
 export const ProductCreate: React.FC = () => {
     const { formProps, saveButtonProps } = useForm<IProduct>();

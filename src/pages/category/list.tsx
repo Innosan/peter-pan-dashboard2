@@ -5,7 +5,7 @@ import {
 } from "@refinedev/antd";
 import {Select, Space, Table} from "antd";
 
-import { ICategory } from "interfaces";
+import { ICategory } from "../../interfaces";
 
 export const CategoryList: React.FC = () => {
     const { tableProps, sorter } = useTable<ICategory>({

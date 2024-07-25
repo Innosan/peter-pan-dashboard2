@@ -1,7 +1,7 @@
 import { Create, useForm, useSelect } from "@refinedev/antd";
 import { Form, Input, Select } from "antd";
 
-import { ICategory } from "interfaces";
+import { ICategory } from "../../interfaces";
 
 export const CategoryCreate: React.FC = () => {
     const { formProps, saveButtonProps } = useForm<ICategory>();

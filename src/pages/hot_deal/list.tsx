@@ -9,7 +9,7 @@ import {
 } from "@refinedev/antd";
 import { Table, Space, Select } from "antd";
 
-import { IHotDeal, ICategory } from "interfaces";
+import { IHotDeal, ICategory } from "../../interfaces";
 
 export const HotDealList: React.FC = () => {
     const { tableProps, sorter } = useTable<IHotDeal>({

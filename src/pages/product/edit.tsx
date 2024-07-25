@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Edit, ListButton, RefreshButton, useForm, useSelect } from "@refinedev/antd";
 import { Alert, Button, Form, Input, Select } from "antd";
 
-import { IProduct, ICategory } from "interfaces";
+import { IProduct, ICategory } from "../../interfaces";
 
 export const ProductEdit: React.FC = () => {
     const [isDeprecated, setIsDeprecated] = useState(false);

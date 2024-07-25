@@ -1,7 +1,7 @@
 import { Create, useForm, useSelect } from "@refinedev/antd";
 import { Form, Input, Select, DatePicker } from "antd";
 
-import { IHotDeal, ICategory } from "interfaces";
+import { IHotDeal, ICategory } from "../../interfaces";
 
 export const HotDealCreate: React.FC = () => {
     const { formProps, saveButtonProps } = useForm<IHotDeal>();

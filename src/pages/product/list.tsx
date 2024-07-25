@@ -9,7 +9,7 @@ import {
 } from "@refinedev/antd";
 import { Table, Space, Select } from "antd";
 
-import { IProduct, ICategory, IFabricator } from "interfaces";
+import { IProduct, ICategory, IFabricator } from "../../interfaces";
 import {useLink} from "@refinedev/core";
 
 export const ProductList: React.FC = () => {
